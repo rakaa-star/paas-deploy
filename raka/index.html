@@ -1,0 +1,1343 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PanenTepat — Platform Keputusan Musim & Waktu Tanam Pertanian Indonesia</title>
+  <meta name="description" content="PanenTepat membantu petani Indonesia memahami waktu tanam terbaik, rekomendasi komoditas, dan mitigasi risiko musim dalam satu tampilan yang sederhana dan tenang.">
+  <meta name="keywords" content="panentepat, pertanian indonesia, waktu tanam, kalender musim tani, rekomendasi komoditas, harga gabah, iklim tani">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Top Announcement Bar -->
+  <aside class="announcement-bar" role="complementary">
+    <div class="container announcement-inner">
+      <div class="announcement-tag">
+        <span class="pulse-dot" aria-hidden="true"></span>
+        <span>Prototype Konsep</span>
+      </div>
+      <p class="announcement-text">Platform Informasi Pertanian Indonesia — Seluruh data iklim & harga menggunakan simulasi terstruktur untuk percontohan.</p>
+    </div>
+  </aside>
+
+  <!-- Sticky Header Navigation -->
+  <header class="site-header" id="siteHeader">
+    <div class="container header-inner">
+      <a href="#hero" class="brand-logo" aria-label="PanenTepat Beranda">
+        <span class="logo-symbol" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path d="M12 2C12 2 6 7 6 13C6 16.3137 8.68629 19 12 19C15.3137 19 18 16.3137 18 13C18 7 12 2 12 2Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+            <path d="M12 7V19" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+            <path d="M12 12C10 10.5 8 11 8 11" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+            <path d="M12 15C14 13.5 16 14 16 14" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+            <circle cx="12" cy="21" r="1" fill="currentColor"/>
+          </svg>
+        </span>
+        <span class="logo-text">PANENTEPAT</span>
+      </a>
+
+      <nav class="desktop-nav" aria-label="Navigasi Utama">
+        <ul class="nav-links">
+          <li><a href="#musim" class="nav-link">Kondisi Musim</a></li>
+          <li><a href="#komoditas" class="nav-link">Pilihan Tanam</a></li>
+          <li><a href="#perjalanan" class="nav-link">Peta Perjalanan</a></li>
+          <li><a href="#risiko" class="nav-link">Risiko Musim</a></li>
+          <li><a href="#harga" class="nav-link">Referensi Harga</a></li>
+          <li><a href="#cek-rencana" class="nav-link">Cek Rencana</a></li>
+          <li><a href="#tentang" class="nav-link">Tentang</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <a href="#cek-rencana" class="btn btn-nav">
+          <span>Analisis Tanam</span>
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M3 8H13M13 8L8.5 3.5M13 8L8.5 12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+        <button class="mobile-toggle" id="mobileToggle" aria-label="Buka Menu Navigasi" aria-expanded="false" aria-controls="mobileDrawer">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div class="mobile-drawer" id="mobileDrawer" aria-hidden="true">
+      <div class="mobile-drawer-content">
+        <ul class="mobile-nav-links">
+          <li><a href="#musim" class="mobile-nav-link">Kondisi Musim</a></li>
+          <li><a href="#komoditas" class="mobile-nav-link">Pilihan Tanam</a></li>
+          <li><a href="#perjalanan" class="mobile-nav-link">Peta Perjalanan</a></li>
+          <li><a href="#risiko" class="mobile-nav-link">Risiko Musim</a></li>
+          <li><a href="#harga" class="mobile-nav-link">Referensi Harga</a></li>
+          <li><a href="#cek-rencana" class="mobile-nav-link">Cek Rencana</a></li>
+          <li><a href="#tentang" class="mobile-nav-link">Tentang Indonesia</a></li>
+        </ul>
+        <div class="mobile-drawer-footer">
+          <a href="#cek-rencana" class="btn btn-primary btn-block">Mulai Cek Rencana Tanam</a>
+          <p class="drawer-note">Data simulasi untuk wilayah pertanian Nusantara.</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="mainContent">
+
+    <!-- HERO SECTION -->
+    <section class="hero-section" id="hero">
+      <div class="container hero-container">
+        <div class="hero-editorial">
+          <div class="badge-editorial">
+            <span class="badge-line"></span>
+            <span class="badge-text">PLATFORM INFORMASI PERTANIAN INDONESIA</span>
+          </div>
+
+          <h1 class="hero-title">Menanam bukan sekadar menunggu hujan.</h1>
+
+          <p class="hero-description">
+            PanenTepat membantu petani memahami waktu tanam, pilihan komoditas, dan risiko musim dalam satu pandangan yang sederhana dan tenang.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#musim" class="btn btn-primary">
+              <span>Mulai Cek Musim</span>
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                <path d="M3 8H13M13 8L8.5 3.5M13 8L8.5 12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+            <a href="#perjalanan" class="btn btn-outline">
+              <span>Pelajari Cara Kerja</span>
+            </a>
+          </div>
+
+          <div class="hero-stats-strip">
+            <div class="hero-stat-item">
+              <span class="stat-number" data-target="5">0</span>
+              <span class="stat-unit">Wilayah Utama</span>
+              <span class="stat-caption">Karakteristik agro-klimat</span>
+            </div>
+            <div class="hero-stat-divider"></div>
+            <div class="hero-stat-item">
+              <span class="stat-number" data-target="6">0</span>
+              <span class="stat-unit">Tahapan Tanam</span>
+              <span class="stat-caption">Panduan budidaya terpadu</span>
+            </div>
+            <div class="hero-stat-divider"></div>
+            <div class="hero-stat-item">
+              <span class="stat-number" data-target="100" data-suffix="%">0%</span>
+              <span class="stat-unit">Visual Sederhana</span>
+              <span class="stat-caption">Bebas jargon rumit</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual-wrapper">
+          <div class="hero-visual-card">
+            <!-- Terraced Topography SVG Art -->
+            <div class="terrace-artwork" aria-hidden="true">
+              <svg viewBox="0 0 540 380" fill="none" xmlns="http://www.w3.org/2000/svg" class="contour-svg">
+                <defs>
+                  <linearGradient id="terraceGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#E8EFE9"/>
+                    <stop offset="100%" stop-color="#D6E4D9"/>
+                  </linearGradient>
+                  <linearGradient id="terraceGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#CFE0D3"/>
+                    <stop offset="100%" stop-color="#B8CEBE"/>
+                  </linearGradient>
+                  <linearGradient id="sunGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#E9C39B" stop-opacity="0.8"/>
+                    <stop offset="100%" stop-color="#C25E3E" stop-opacity="0.2"/>
+                  </linearGradient>
+                </defs>
+
+                <!-- Soft Morning Sun / Horizon Circle -->
+                <circle cx="410" cy="110" r="70" fill="url(#sunGrad)" />
+
+                <!-- Contour Layer 1 (Furthest Mountain/Hill) -->
+                <path d="M0 160 Q 140 120, 270 145 T 540 110 L 540 380 L 0 380 Z" fill="#F1ECE4" opacity="0.9"/>
+                
+                <!-- Contour Layer 2 (Middle Ridge) -->
+                <path d="M0 200 Q 120 170, 260 195 T 540 165 L 540 380 L 0 380 Z" fill="url(#terraceGrad1)" opacity="0.85"/>
+                
+                <!-- Contour Layer 3 (Terrace Tier A) -->
+                <path d="M0 245 Q 160 215, 310 240 Q 440 220, 540 235 L 540 380 L 0 380 Z" fill="url(#terraceGrad2)" opacity="0.9"/>
+                
+                <!-- Contour Layer 4 (Terrace Tier B - Deep Forest) -->
+                <path d="M0 290 Q 180 260, 360 285 Q 460 270, 540 280 L 540 380 L 0 380 Z" fill="#244837" opacity="0.95"/>
+
+                <!-- Contour lines styling -->
+                <path d="M10 240 Q 160 212, 310 237 Q 440 217, 530 232" stroke="#8EAFA0" stroke-width="1.2" stroke-dasharray="3 4"/>
+                <path d="M10 285 Q 180 257, 360 282 Q 460 267, 530 277" stroke="#E3C49F" stroke-width="1.2"/>
+
+                <!-- Stylized Rice Shoots / Padi Nodes -->
+                <g class="padi-node" transform="translate(180, 268)">
+                  <path d="M0 14 C-4 6 -2 0 0 -8 C2 0 4 6 0 14" fill="#6B8E76"/>
+                  <path d="M-5 12 C-8 6 -6 2 -3 -2" stroke="#6B8E76" stroke-width="1.2" fill="none"/>
+                  <path d="M5 12 C8 6 6 2 3 -2" stroke="#6B8E76" stroke-width="1.2" fill="none"/>
+                </g>
+
+                <g class="padi-node" transform="translate(340, 276)">
+                  <path d="M0 14 C-4 6 -2 0 0 -8 C2 0 4 6 0 14" fill="#E3C49F"/>
+                  <path d="M-5 12 C-8 6 -6 2 -3 -2" stroke="#E3C49F" stroke-width="1.2" fill="none"/>
+                  <path d="M5 12 C8 6 6 2 3 -2" stroke="#E3C49F" stroke-width="1.2" fill="none"/>
+                </g>
+
+                <g class="padi-node" transform="translate(460, 268)">
+                  <path d="M0 14 C-4 6 -2 0 0 -8 C2 0 4 6 0 14" fill="#6B8E76"/>
+                </g>
+              </svg>
+            </div>
+
+            <!-- Floating Editorial Data Widgets -->
+            <div class="hero-live-widget top-widget">
+              <div class="widget-header">
+                <span class="widget-indicator"></span>
+                <span class="widget-label">Kondisi Musim Jawa Timur</span>
+              </div>
+              <div class="widget-body">
+                <div class="widget-metric">
+                  <span class="metric-val">Peralihan</span>
+                  <span class="metric-sub">Bulan Optimal Tanam</span>
+                </div>
+                <div class="widget-secondary">
+                  <span class="sub-val">Curah Hujan 128 mm</span>
+                  <div class="mini-bar-track">
+                    <div class="mini-bar-fill" style="width: 58%;"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="hero-live-widget bottom-widget">
+              <div class="timeline-quick-preview">
+                <div class="preview-phase active">
+                  <span class="phase-num">01</span>
+                  <span class="phase-name">Olah Tanah</span>
+                </div>
+                <div class="preview-arrow">→</div>
+                <div class="preview-phase">
+                  <span class="phase-num">02</span>
+                  <span class="phase-name">Benih Sehat</span>
+                </div>
+                <div class="preview-arrow">→</div>
+                <div class="preview-phase">
+                  <span class="phase-num">03</span>
+                  <span class="phase-name">Tanam Siap</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: LIHAT KONDISI MUSIM -->
+    <section class="section section-season" id="musim">
+      <div class="container">
+        <header class="section-header">
+          <div class="section-subtitle">PEMANTAUAN AGRO-KLIMAT</div>
+          <h2 class="section-title">Bagaimana kondisi musim di wilayahmu?</h2>
+          <p class="section-desc">Pilih provinsi untuk mengamati ritme curah hujan, suhu harian, dan rekomendasi langkah antisipasi sebelum menabur benih.</p>
+        </header>
+
+        <!-- Region Selector Tabs -->
+        <div class="region-selector-wrapper" role="tablist" aria-label="Pilihan Wilayah Pertanian">
+          <button class="region-btn active" role="tab" aria-selected="true" data-region="jatim" id="tab-jatim" aria-controls="seasonContent">
+            <span class="btn-indicator"></span>
+            <span class="btn-text">Jawa Timur</span>
+          </button>
+          <button class="region-btn" role="tab" aria-selected="false" data-region="jateng" id="tab-jateng" aria-controls="seasonContent">
+            <span class="btn-indicator"></span>
+            <span class="btn-text">Jawa Tengah</span>
+          </button>
+          <button class="region-btn" role="tab" aria-selected="false" data-region="jabar" id="tab-jabar" aria-controls="seasonContent">
+            <span class="btn-indicator"></span>
+            <span class="btn-text">Jawa Barat</span>
+          </button>
+          <button class="region-btn" role="tab" aria-selected="false" data-region="sumsel" id="tab-sumsel" aria-controls="seasonContent">
+            <span class="btn-indicator"></span>
+            <span class="btn-text">Sumatera Selatan</span>
+          </button>
+          <button class="region-btn" role="tab" aria-selected="false" data-region="sulsel" id="tab-sulsel" aria-controls="seasonContent">
+            <span class="btn-indicator"></span>
+            <span class="btn-text">Sulawesi Selatan</span>
+          </button>
+        </div>
+
+        <!-- Dynamic Season Display Card -->
+        <div class="season-display-grid" id="seasonContent" role="tabpanel" aria-labelledby="tab-jatim">
+          
+          <!-- Primary Summary Card -->
+          <div class="season-card season-main-summary">
+            <div class="card-header-sub">
+              <span class="badge-outline" id="seasonRegionTag">Jawa Timur</span>
+              <span class="simulation-badge">Data Simulasi Wilayah</span>
+            </div>
+
+            <div class="season-headline-block">
+              <span class="season-status-label">Status Musim Saat Ini</span>
+              <h3 class="season-status-title" id="seasonName">Peralihan (Pancaroba)</h3>
+              <p class="season-narrative" id="seasonDescription">
+                Kondisi peralihan dari kemarau menuju musim hujan awal. Kelembapan tanah mulai mencukupi untuk persiapan lahan sawah dan penyiapan persemaian benih padi umur sedang.
+              </p>
+            </div>
+
+            <div class="season-metrics-grid">
+              <div class="metric-box">
+                <div class="metric-icon" aria-hidden="true">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                    <path d="M12 3V21M12 3C8 8 5 12 5 15C5 18.866 8.13401 22 12 22C15.866 22 19 18.866 19 15C19 12 16 8 12 3Z" stroke="currentColor" stroke-width="1.6"/>
+                  </svg>
+                </div>
+                <div class="metric-info">
+                  <span class="metric-caption">Curah Hujan</span>
+                  <div class="metric-data-group">
+                    <strong class="metric-value-large" id="seasonRainfall">128</strong>
+                    <span class="metric-unit">mm / bulan</span>
+                  </div>
+                  <div class="css-progress-track">
+                    <div class="css-progress-fill" id="seasonRainfallBar" style="width: 52%;"></div>
+                  </div>
+                  <span class="metric-sublabel" id="seasonRainfallCategory">Kategori: Sedang</span>
+                </div>
+              </div>
+
+              <div class="metric-box">
+                <div class="metric-icon" aria-hidden="true">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                    <path d="M12 15C13.6569 15 15 13.6569 15 12C15 10.3431 13.6569 9 12 9C10.3431 9 9 10.3431 9 12C9 13.6569 10.3431 15 12 15Z" stroke="currentColor" stroke-width="1.6"/>
+                    <path d="M12 2V4M12 20V22M4 12H2M6.31412 6.31412L4.8999 4.8999M17.6859 6.31412L19.1001 4.8999M6.31412 17.6859L4.8999 19.1001M17.6859 17.6859L19.1001 19.1001M22 12H20" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+                  </svg>
+                </div>
+                <div class="metric-info">
+                  <span class="metric-caption">Suhu Rata-rata</span>
+                  <div class="metric-data-group">
+                    <strong class="metric-value-large" id="seasonTemp">28.4</strong>
+                    <span class="metric-unit">°C</span>
+                  </div>
+                  <div class="temp-indicator-track">
+                    <span class="temp-dot" id="seasonTempDot" style="left: 65%;"></span>
+                  </div>
+                  <span class="metric-sublabel" id="seasonTempCategory">Optimal untuk fotosintesis</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Risk & Action Advisory Card -->
+          <div class="season-card season-advisory-card">
+            <div class="advisory-top">
+              <span class="advisory-label">Tingkat Risiko Musim</span>
+              <div class="risk-pill" id="seasonRiskBadge">
+                <span class="risk-circle"></span>
+                <span id="seasonRiskText">Risiko Sedang</span>
+              </div>
+            </div>
+
+            <div class="risk-factors-list" id="seasonRiskFactors">
+              <div class="factor-item">
+                <span class="factor-title">Peluang Angin Kencang</span>
+                <div class="factor-meter">
+                  <div class="factor-fill" style="width: 45%;"></div>
+                </div>
+              </div>
+              <div class="factor-item">
+                <span class="factor-title">Fluktuasi Ketersediaan Air</span>
+                <div class="factor-meter">
+                  <div class="factor-fill" style="width: 58%;"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="advisory-recommendation-box">
+              <h4 class="advisory-box-title">Rekomendasi Tindakan Cepat:</h4>
+              <p class="advisory-box-text" id="seasonRecommendation">
+                Perbaiki saluran irigasi primer dan sekunder sebelum intensitas hujan meningkat. Lakukan pengolahan tanah awal agar bahan organik terdekomposisi sempurna.
+              </p>
+            </div>
+
+            <div class="season-crops-fit">
+              <span class="fit-label">Komoditas Sangat Cocok:</span>
+              <div class="fit-tags" id="seasonFitTags">
+                <span class="fit-tag">Padi Sawah</span>
+                <span class="fit-tag">Jagung Hibrida</span>
+                <span class="fit-tag">Kacang Hijau</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5: APA YANG BISA DITANAM? -->
+    <section class="section section-crops bg-warm" id="komoditas">
+      <div class="container">
+        <header class="section-header">
+          <div class="section-subtitle">PILIHAN KOMODITAS</div>
+          <h2 class="section-title">Apa yang bisa ditanam musim ini?</h2>
+          <p class="section-desc">Karakteristik kebutuhan air, durasi tanam, dan tingkat ketahanan komoditas pangan utama Indonesia.</p>
+        </header>
+
+        <!-- Asymmetric Editorial Layout -->
+        <div class="crops-editorial-layout">
+          
+          <!-- Hero Crop Spotlight (PADI) -->
+          <article class="crop-spotlight-card" id="cropFeaturedCard">
+            <div class="spotlight-top">
+              <span class="spotlight-tag">KOMODITAS UTAMA</span>
+              <span class="spotlight-season-badge">Cocok: Musim Hujan & Peralihan</span>
+            </div>
+
+            <div class="spotlight-body">
+              <div class="spotlight-title-group">
+                <h3 class="spotlight-crop-name" id="spotlightName">Padi Sawah</h3>
+                <span class="spotlight-crop-latin" id="spotlightLatin">Oryza sativa</span>
+              </div>
+
+              <p class="spotlight-crop-desc" id="spotlightDesc">
+                Komoditas pokok strategis. Memerlukan tata kelola air yang terjaga sejak persemaian hingga fase bunting. Toleran terhadap genangan namun rentan rebah jika angin kencang pada fase pengisian bulir.
+              </p>
+
+              <div class="spotlight-metrics-row">
+                <div class="spotlight-metric">
+                  <span class="spot-label">Durasi Tanam</span>
+                  <strong class="spot-val" id="spotlightDuration">110 – 120 Hari</strong>
+                </div>
+                <div class="spotlight-metric">
+                  <span class="spot-label">Kebutuhan Air</span>
+                  <strong class="spot-val text-primary" id="spotlightWater">Tinggi (800-1200 mm)</strong>
+                </div>
+                <div class="spotlight-metric">
+                  <span class="spot-label">Tingkat Risiko</span>
+                  <strong class="spot-val text-sage" id="spotlightRisk">Rendah – Sedang</strong>
+                </div>
+                <div class="spotlight-metric">
+                  <span class="spot-label">Estimasi Panen</span>
+                  <strong class="spot-val" id="spotlightHarvest">Bulan ke-4</strong>
+                </div>
+              </div>
+            </div>
+
+            <div class="spotlight-footer">
+              <div class="spotlight-note">
+                <span class="note-icon">ℹ</span>
+                <span>Varietas rekomendasi: Inpari 32, Ciherang, Situ Bagendit (tahan genangan & rendemen stabil).</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Supporting Crop Cards (Grid) -->
+          <div class="crop-secondary-grid">
+            
+            <!-- Jagung -->
+            <article class="crop-item-card" data-crop="jagung">
+              <div class="crop-item-header">
+                <div>
+                  <h4 class="crop-item-name">Jagung</h4>
+                  <span class="crop-item-latin">Zea mays</span>
+                </div>
+                <span class="crop-badge-water water-med">Air Sedang</span>
+              </div>
+              <p class="crop-item-desc">Tahan kekeringan moderat. Sangat baik ditanam pada awal kemarau atau akhir musim hujan.</p>
+              <div class="crop-item-specs">
+                <div class="spec-row">
+                  <span class="spec-name">Durasi</span>
+                  <span class="spec-value">95 – 105 Hari</span>
+                </div>
+                <div class="spec-row">
+                  <span class="spec-name">Risiko</span>
+                  <span class="spec-value">Rendah</span>
+                </div>
+                <div class="spec-row">
+                  <span class="spec-name">Kondisi Musim</span>
+                  <span class="spec-value">Kemarau Basah / Pancaroba</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- Cabai -->
+            <article class="crop-item-card" data-crop="cabai">
+              <div class="crop-item-header">
+                <div>
+                  <h4 class="crop-item-name">Cabai Merah</h4>
+                  <span class="crop-item-latin">Capsicum annuum</span>
+                </div>
+                <span class="crop-badge-water water-med">Air Sedang</span>
+              </div>
+              <p class="crop-item-desc">Nilai ekonomis tinggi namun sensitif terhadap kelembapan berlebih dan serangan antraknosa.</p>
+              <div class="crop-item-specs">
+                <div class="spec-row">
+                  <span class="spec-name">Durasi</span>
+                  <span class="spec-value">80 – 90 Hari (Mulai Panen)</span>
+                </div>
+                <div class="spec-row">
+                  <span class="spec-name">Risiko</span>
+                  <span class="spec-value text-accent">Tinggi</span>
+                </div>
+                <div class="spec-row">
+                  <span class="spec-name">Kondisi Musim</span>
+                  <span class="spec-value">Kemarau Terkendali</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- Bawang Merah -->
+            <article class="crop-item-card" data-crop="bawang">
+              <div class="crop-item-header">
+                <div>
+                  <h4 class="crop-item-name">Bawang Merah</h4>
+                  <span class="crop-item-latin">Allium cepa var. aggregatum</span>
+                </div>
+                <span class="crop-badge-water water-low">Air Rendah–Sedang</span>
+              </div>
+              <p class="crop-item-desc">Siklus cepat, membutuhkan tanah gembur berpasir dengan drainase lancar tanpa genangan.</p>
+              <div class="crop-item-specs">
+                <div class="spec-row">
+                  <span class="spec-name">Durasi</span>
+                  <span class="spec-value">55 – 70 Hari</span>
+                </div>
+                <div class="spec-row">
+                  <span class="spec-name">Risiko</span>
+                  <span class="spec-value">Sedang</span>
+                </div>
+                <div class="spec-row">
+                  <span class="spec-name">Kondisi Musim</span>
+                  <span class="spec-value">Kemarau (Irigasi Pompa)</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- Kedelai -->
+            <article class="crop-item-card" data-crop="kedelai">
+              <div class="crop-item-header">
+                <div>
+                  <h4 class="crop-item-name">Kedelai</h4>
+                  <span class="crop-item-latin">Glycine max</span>
+                </div>
+                <span class="crop-badge-water water-low">Air Rendah</span>
+              </div>
+              <p class="crop-item-desc">Tanaman rotasi penyubur tanah. Mengikat nitrogen bebas, cocok sebagai jeda tanam padi sawah.</p>
+              <div class="crop-item-specs">
+                <div class="spec-row">
+                  <span class="spec-name">Durasi</span>
+                  <span class="spec-value">75 – 85 Hari</span>
+                </div>
+                <div class="spec-row">
+                  <span class="spec-name">Risiko</span>
+                  <span class="spec-value">Rendah</span>
+                </div>
+                <div class="spec-row">
+                  <span class="spec-name">Kondisi Musim</span>
+                  <span class="spec-value">Awal Kemarau</span>
+                </div>
+              </div>
+            </article>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 6: PETA PERJALANAN TANAM -->
+    <section class="section section-journey" id="perjalanan">
+      <div class="container">
+        <header class="section-header">
+          <div class="section-subtitle">ALUR BUDIDAYA SISTEMATIS</div>
+          <h2 class="section-title">Peta Perjalanan Tanam</h2>
+          <p class="section-desc">Enam tahapan krusial dari persiapan hingga panen. Klik setiap tahapan untuk melihat rincian tindakan dan panduan praktis.</p>
+        </header>
+
+        <div class="journey-interactive-wrapper">
+          <!-- Horizontal / Vertical Stage Stepper -->
+          <nav class="timeline-stepper" aria-label="Tahapan Siklus Tanam">
+            <button class="step-node active" data-step="1" aria-selected="true">
+              <span class="step-counter">01</span>
+              <span class="step-label">Persiapan Lahan</span>
+            </button>
+            <div class="step-line" aria-hidden="true"></div>
+
+            <button class="step-node" data-step="2" aria-selected="false">
+              <span class="step-counter">02</span>
+              <span class="step-label">Pilih Benih</span>
+            </button>
+            <div class="step-line" aria-hidden="true"></div>
+
+            <button class="step-node" data-step="3" aria-selected="false">
+              <span class="step-counter">03</span>
+              <span class="step-label">Waktu Tanam</span>
+            </button>
+            <div class="step-line" aria-hidden="true"></div>
+
+            <button class="step-node" data-step="4" aria-selected="false">
+              <span class="step-counter">04</span>
+              <span class="step-label">Perawatan</span>
+            </button>
+            <div class="step-line" aria-hidden="true"></div>
+
+            <button class="step-node" data-step="5" aria-selected="false">
+              <span class="step-counter">05</span>
+              <span class="step-label">Persiapan Panen</span>
+            </button>
+            <div class="step-line" aria-hidden="true"></div>
+
+            <button class="step-node" data-step="6" aria-selected="false">
+              <span class="step-counter">06</span>
+              <span class="step-label">Panen</span>
+            </button>
+          </nav>
+
+          <!-- Stage Details Interactive Panel -->
+          <div class="journey-detail-card" id="journeyDetailCard">
+            <div class="detail-header">
+              <div class="detail-stage-badge">
+                <span class="detail-number" id="detailStepNum">TAHAP 01</span>
+                <span class="detail-phase-tag" id="detailPhaseTag">Fase Awal Siklus</span>
+              </div>
+              <h3 class="detail-title" id="detailTitle">Persiapan Lahan & Sanitasi Tanah</h3>
+            </div>
+
+            <div class="detail-body-grid">
+              <div class="detail-main-info">
+                <h4 class="detail-subheading">Fokus Utama & Panduan Kerja</h4>
+                <p class="detail-description" id="detailDescription">
+                  Bajak lahan sedalam 20–25 cm untuk membalik tanah dan mengekspos bibit hama ke sinar matahari. Campurkan pupuk kandang matang atau kompos organik minimal 2 ton/hektar serta kapur dolomit jika pH tanah berada di bawah 6.0.
+                </p>
+
+                <div class="detail-checklist" id="detailChecklist">
+                  <div class="check-item">
+                    <span class="check-icon">✓</span>
+                    <span>Pembajakan dan penggaruan tanah 2 kali selang 7 hari.</span>
+                  </div>
+                  <div class="check-item">
+                    <span class="check-icon">✓</span>
+                    <span>Pembersihan sisa jerami dan gulma gulma inang.</span>
+                  </div>
+                  <div class="check-item">
+                    <span class="check-icon">✓</span>
+                    <span>Pengecekan pH tanah dan perataan bidang sawah.</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="detail-sidebar-advisory">
+                <div class="advisory-subcard">
+                  <span class="subcard-title">Kunci Cuaca & Air</span>
+                  <p class="subcard-content" id="detailWeatherTip">
+                    Pastikan tanah dalam kondisi lembap saat pembajakan, hindari pengolahan saat tanah tergenang banjir ekstrem agar struktur tanah tidak rusak.
+                  </p>
+                </div>
+
+                <div class="advisory-subcard alert-subcard">
+                  <span class="subcard-title">Risiko yang Dicegah</span>
+                  <p class="subcard-content" id="detailRiskTip">
+                    Penyakit layu fusarium, jamur tular tanah, dan pembusukan akar dini akibat sisa organik mentah.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="journey-controls">
+              <button class="btn btn-outline btn-sm" id="prevStepBtn" disabled>
+                ← Tahap Sebelumnya
+              </button>
+              <span class="step-progress-text" id="stepProgressIndicator">1 dari 6 Tahapan</span>
+              <button class="btn btn-primary btn-sm" id="nextStepBtn">
+                Tahap Berikutnya →
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 7: RISIKO YANG PERLU DIPERHATIKAN -->
+    <section class="section section-risk bg-warm" id="risiko">
+      <div class="container">
+        <header class="section-header">
+          <div class="section-subtitle">MITIGASI & KESIAPSIAGAAN</div>
+          <h2 class="section-title">Risiko yang perlu diperhatikan</h2>
+          <p class="section-desc">Kesiapan mitigasi risiko merupakan penentu utama kestabilan hasil panen petani nusantara.</p>
+        </header>
+
+        <div class="risk-dashboard-grid">
+          
+          <!-- Risk 1: Kekeringan -->
+          <article class="risk-card">
+            <div class="risk-card-header">
+              <div class="risk-icon-wrap" aria-hidden="true">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                  <path d="M12 2C8 7 4 11 4 15C4 19.4183 7.58172 23 12 23C16.4183 23 20 19.4183 20 15C20 11 16 7 12 2Z" stroke="currentColor" stroke-width="1.5"/>
+                  <path d="M7 16L17 16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <div class="risk-title-box">
+                <h3 class="risk-name">Kekeringan / Defisit Air</h3>
+                <span class="risk-severity text-accent">Probabilitas Musim: 80%</span>
+              </div>
+            </div>
+
+            <div class="risk-bar-container">
+              <div class="risk-bar-label">
+                <span>Tingkat Kerentanan</span>
+                <strong>80%</strong>
+              </div>
+              <div class="risk-bar-track">
+                <div class="risk-bar-fill fill-high" style="width: 80%;"></div>
+              </div>
+            </div>
+
+            <p class="risk-explanation">
+              Penurunan debit sumber irigasi teknis di puncak kemarau yang menghambat fase bunting tanaman padi.
+            </p>
+
+            <div class="risk-mitigation">
+              <strong>Tindakan Pencegahan:</strong>
+              <p>Terapkan sistem pengairan berselang (AWD / intermittent irrigation) dan siapkan embung atau pompa air komunal.</p>
+            </div>
+          </article>
+
+          <!-- Risk 2: Hujan Berlebih -->
+          <article class="risk-card">
+            <div class="risk-card-header">
+              <div class="risk-icon-wrap" aria-hidden="true">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                  <path d="M4 14C4 10.6863 6.68629 8 10 8C10.7088 8 11.3855 8.12275 12.0152 8.34863C12.8718 5.82397 15.2289 4 18 4C21.3137 4 24 6.68629 24 10C24 10.3429 23.9713 10.6791 23.9158 11.0064C23.9715 11.3323 24 11.6627 24 12C24 15.3137 21.3137 18 18 18H6C3.79086 18 2 16.2091 2 14" stroke="currentColor" stroke-width="1.5"/>
+                  <path d="M8 20L6 23M13 20L11 23M18 20L16 23" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <div class="risk-title-box">
+                <h3 class="risk-name">Hujan Berlebih & Banjir</h3>
+                <span class="risk-severity text-sage">Probabilitas Musim: 50%</span>
+              </div>
+            </div>
+
+            <div class="risk-bar-container">
+              <div class="risk-bar-label">
+                <span>Tingkat Kerentanan</span>
+                <strong>50%</strong>
+              </div>
+              <div class="risk-bar-track">
+                <div class="risk-bar-fill fill-med" style="width: 50%;"></div>
+              </div>
+            </div>
+
+            <p class="risk-explanation">
+              Hujan lebat berturut-turut yang menyebabkan genangan berkepanjangan pada fase persemaian atau menjelang panen.
+            </p>
+
+            <div class="risk-mitigation">
+              <strong>Tindakan Pencegahan:</strong>
+              <p>Perdalam parit keliling lahan minimal 30 cm dan bersihkan pintu buangan air primer secara berkala.</p>
+            </div>
+          </article>
+
+          <!-- Risk 3: Hama & Penyakit -->
+          <article class="risk-card">
+            <div class="risk-card-header">
+              <div class="risk-icon-wrap" aria-hidden="true">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                  <path d="M12 9C9.79086 9 8 10.7909 8 13C8 15.2091 9.79086 17 12 17C14.2091 17 16 15.2091 16 13C16 10.7909 14.2091 9 12 9Z" stroke="currentColor" stroke-width="1.5"/>
+                  <path d="M12 9V5M8 11L4 9M16 11L20 9M8 15L4 17M16 15L20 17M12 17V21" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <div class="risk-title-box">
+                <h3 class="risk-name">Serangan Hama & Jamur</h3>
+                <span class="risk-severity text-primary">Probabilitas Musim: 60%</span>
+              </div>
+            </div>
+
+            <div class="risk-bar-container">
+              <div class="risk-bar-label">
+                <span>Tingkat Kerentanan</span>
+                <strong>60%</strong>
+              </div>
+              <div class="risk-bar-track">
+                <div class="risk-bar-fill fill-med" style="width: 60%;"></div>
+              </div>
+            </div>
+
+            <p class="risk-explanation">
+              Kelembapan tinggi memicu ledakan wereng coklat, penggerek batang, serta penyakit blas dan antraknosa pada hortikultura.
+            </p>
+
+            <div class="risk-mitigation">
+              <strong>Tindakan Pencegahan:</strong>
+              <p>Tanam serempak dalam radius kelompok tani, gunakan agens hayati Trichoderma dan pasang lampu perangkap.</p>
+            </div>
+          </article>
+
+          <!-- Risk 4: Fluktuasi Harga -->
+          <article class="risk-card">
+            <div class="risk-card-header">
+              <div class="risk-icon-wrap" aria-hidden="true">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                  <path d="M3 20L9 14L13 18L21 10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M16 10H21V15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <div class="risk-title-box">
+                <h3 class="risk-name">Fluktuasi Harga Panen Raya</h3>
+                <span class="risk-severity text-muted">Probabilitas Pasar: 40%</span>
+              </div>
+            </div>
+
+            <div class="risk-bar-container">
+              <div class="risk-bar-label">
+                <span>Tingkat Kerentanan</span>
+                <strong>40%</strong>
+              </div>
+              <div class="risk-bar-track">
+                <div class="risk-bar-fill fill-low" style="width: 40%;"></div>
+              </div>
+            </div>
+
+            <p class="risk-explanation">
+              Penurunan harga jual drastis di tingkat petani akibat panen serentak yang membanjiri pasar lokal tanpa kontrak serap.
+            </p>
+
+            <div class="risk-mitigation">
+              <strong>Tindakan Pencegahan:</strong>
+              <p>Bermitra dengan lumbung desa, diversifikasi waktu tanam mingguan, serta pengeringan gabah untuk penyimpanan aman.</p>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 8: SECTION HARGA KOMODITAS -->
+    <section class="section section-price" id="harga">
+      <div class="container">
+        <header class="section-header">
+          <div class="section-subtitle">TRANSPARANSI NILAI PASAR</div>
+          <h2 class="section-title">Harga sebagai pertimbangan, bukan kepastian.</h2>
+          <p class="section-desc">Pantau estimasi pergerakan harga komoditas utama sebagai acuan kalkulasi modal dan proyeksi penerimaan usaha tani.</p>
+        </header>
+
+        <div class="price-disclaimer-banner">
+          <span class="disclaimer-icon">ℹ</span>
+          <span>Data pada prototype ini merupakan data simulasi dan bukan harga pasar real-time. Gunakan sebagai tolok ukur perbandingan relatif.</span>
+        </div>
+
+        <div class="price-content-grid">
+          
+          <!-- Interactive Price Table -->
+          <div class="price-table-wrapper">
+            <table class="price-table" aria-label="Tabel Simulasi Harga Komoditas Pertanian">
+              <thead>
+                <tr>
+                  <th scope="col">Komoditas</th>
+                  <th scope="col">Harga Simulasi</th>
+                  <th scope="col">Tren Bulanan</th>
+                  <th scope="col">Status Pasar</th>
+                </tr>
+              </thead>
+              <tbody id="priceTableBody">
+                <tr class="price-row active-row" data-crop-price="padi">
+                  <td>
+                    <div class="commodity-cell">
+                      <span class="crop-dot dot-padi"></span>
+                      <div>
+                        <strong>Padi (GKP)</strong>
+                        <small>Gabah Kering Panen</small>
+                      </div>
+                    </div>
+                  </td>
+                  <td><span class="price-val">Rp 7.200</span> <small>/ kg</small></td>
+                  <td><span class="trend-pill trend-up">+4.2% ↑</span></td>
+                  <td><span class="market-status status-stable">Permintaan Stabil</span></td>
+                </tr>
+
+                <tr class="price-row" data-crop-price="jagung">
+                  <td>
+                    <div class="commodity-cell">
+                      <span class="crop-dot dot-jagung"></span>
+                      <div>
+                        <strong>Jagung Pipil</strong>
+                        <small>Kadar Air 14%</small>
+                      </div>
+                    </div>
+                  </td>
+                  <td><span class="price-val">Rp 5.800</span> <small>/ kg</small></td>
+                  <td><span class="trend-pill trend-up">+2.1% ↑</span></td>
+                  <td><span class="market-status status-stable">Industri Pakan Baik</span></td>
+                </tr>
+
+                <tr class="price-row" data-crop-price="cabai">
+                  <td>
+                    <div class="commodity-cell">
+                      <span class="crop-dot dot-cabai"></span>
+                      <div>
+                        <strong>Cabai Merah Keriting</strong>
+                        <small>Tingkat Petani</small>
+                      </div>
+                    </div>
+                  </td>
+                  <td><span class="price-val">Rp 42.000</span> <small>/ kg</small></td>
+                  <td><span class="trend-pill trend-down">-6.4% ↓</span></td>
+                  <td><span class="market-status status-volatile">Volatil / Pasokan Melimpah</span></td>
+                </tr>
+
+                <tr class="price-row" data-crop-price="bawang">
+                  <td>
+                    <div class="commodity-cell">
+                      <span class="crop-dot dot-bawang"></span>
+                      <div>
+                        <strong>Bawang Merah</strong>
+                        <small>Kualitas Sedang</small>
+                      </div>
+                    </div>
+                  </td>
+                  <td><span class="price-val">Rp 31.000</span> <small>/ kg</small></td>
+                  <td><span class="trend-pill trend-up">+3.7% ↑</span></td>
+                  <td><span class="market-status status-good">Tren Naik Menuju Hari Raya</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Pure CSS/SVG Dynamic Price Trend Chart -->
+          <div class="price-chart-card">
+            <div class="chart-header">
+              <div class="chart-title-group">
+                <span class="chart-caption">Grafik Simulasi 6 Bulan Terakhir</span>
+                <h4 class="chart-selected-crop" id="chartCropTitle">Tren Harga: Padi (GKP)</h4>
+              </div>
+              <div class="chart-legend">
+                <span class="legend-item"><span class="legend-color"></span> Rata-rata Petani (Rp/kg)</span>
+              </div>
+            </div>
+
+            <!-- Custom SVG Interactive Chart -->
+            <div class="chart-svg-container">
+              <svg viewBox="0 0 460 220" class="price-trend-svg" id="priceTrendSvg" aria-label="Grafik pergerakan harga komoditas">
+                <!-- Background Grid Lines -->
+                <line x1="40" y1="30" x2="440" y2="30" stroke="#ECE8E0" stroke-width="1" stroke-dasharray="2 3"/>
+                <line x1="40" y1="80" x2="440" y2="80" stroke="#ECE8E0" stroke-width="1" stroke-dasharray="2 3"/>
+                <line x1="40" y1="130" x2="440" y2="130" stroke="#ECE8E0" stroke-width="1" stroke-dasharray="2 3"/>
+                <line x1="40" y1="180" x2="440" y2="180" stroke="#DCD6CA" stroke-width="1.2"/>
+
+                <!-- Y Axis Labels -->
+                <text x="32" y="34" class="chart-axis-text" id="yMaxLabel" text-anchor="end">8.000</text>
+                <text x="32" y="84" class="chart-axis-text" id="yMidLabel1" text-anchor="end">7.000</text>
+                <text x="32" y="134" class="chart-axis-text" id="yMidLabel2" text-anchor="end">6.000</text>
+                <text x="32" y="184" class="chart-axis-text" id="yMinLabel" text-anchor="end">5.000</text>
+
+                <!-- Gradient Fill Area -->
+                <defs>
+                  <linearGradient id="chartAreaGrad" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#244837" stop-opacity="0.25"/>
+                    <stop offset="100%" stop-color="#244837" stop-opacity="0.0"/>
+                  </linearGradient>
+                </defs>
+
+                <!-- Area & Line Path (Updated dynamically via JS) -->
+                <path id="chartAreaPath" d="M 60 140 L 130 130 L 200 120 L 270 105 L 340 95 L 410 80 L 410 180 L 60 180 Z" fill="url(#chartAreaGrad)"/>
+                <path id="chartLinePath" d="M 60 140 L 130 130 L 200 120 L 270 105 L 340 95 L 410 80" fill="none" stroke="#244837" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+
+                <!-- Interactive Data Nodes -->
+                <g id="chartNodesGroup">
+                  <!-- Nodes injected by JS -->
+                </g>
+
+                <!-- X Axis Months -->
+                <text x="60" y="202" class="chart-axis-text text-center">Mei</text>
+                <text x="130" y="202" class="chart-axis-text text-center">Jun</text>
+                <text x="200" y="202" class="chart-axis-text text-center">Jul</text>
+                <text x="270" y="202" class="chart-axis-text text-center">Ags</text>
+                <text x="340" y="202" class="chart-axis-text text-center">Sep</text>
+                <text x="410" y="202" class="chart-axis-text text-center">Okt</text>
+              </svg>
+            </div>
+
+            <div class="chart-footer-caption">
+              <span id="chartInsightNote">Padi mengalami kenaikan bertahap mendekati akhir musim gadu seiring turunnya pasokan pasar regional.</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 9: FITUR "CEK RENCANA TANAM" -->
+    <section class="section section-planner bg-warm" id="cek-rencana">
+      <div class="container">
+        <header class="section-header">
+          <div class="section-subtitle">SIMULATOR KEPUTUSAN TANI</div>
+          <h2 class="section-title">Cek Rencana Tanam Mandiri</h2>
+          <p class="section-desc">Pilih parameter wilayah, komoditas yang direncanakan, dan perkiraan musim untuk mengevaluasi kelayakan serta strategi pengawalan budidaya.</p>
+        </header>
+
+        <div class="planner-grid">
+          
+          <!-- Input Form Box -->
+          <div class="planner-form-card">
+            <h3 class="planner-card-title">Parameter Rencana</h3>
+            <p class="planner-card-desc">Sesuaikan pilihan di bawah untuk menjalankan simulasi kecocokan agroklimat lokal.</p>
+
+            <form id="plantingPlanForm" onsubmit="return false;">
+              
+              <!-- Wilayah Input -->
+              <div class="form-group">
+                <label for="planRegion" class="form-label">1. Pilih Wilayah Pertanian</label>
+                <div class="custom-select-wrap">
+                  <select id="planRegion" class="form-select" required>
+                    <option value="jatim" selected>Jawa Timur (Lumbung Pangan Utama)</option>
+                    <option value="jateng">Jawa Tengah (Kawasan Subur Aluvial)</option>
+                    <option value="jabar">Jawa Barat (Dataran Tinggi & Lembah)</option>
+                    <option value="sumsel">Sumatera Selatan (Lahan Pasang Surut & Rawa)</option>
+                    <option value="sulsel">Sulawesi Selatan (Sentra Padi Timur)</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Komoditas Input -->
+              <div class="form-group">
+                <label for="planCrop" class="form-label">2. Pilih Komoditas yang Direncanakan</label>
+                <div class="custom-select-wrap">
+                  <select id="planCrop" class="form-select" required>
+                    <option value="padi" selected>Padi Sawah (Oryza sativa)</option>
+                    <option value="jagung">Jagung Pipil / Hibrida</option>
+                    <option value="cabai">Cabai Merah Keriting</option>
+                    <option value="bawang">Bawang Merah</option>
+                    <option value="kedelai">Kedelai Lokal</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Musim Input -->
+              <div class="form-group">
+                <label for="planSeason" class="form-label">3. Kondisi Musim Saat Ini</label>
+                <div class="custom-select-wrap">
+                  <select id="planSeason" class="form-select" required>
+                    <option value="peralihan" selected>Musim Peralihan (Pancaroba)</option>
+                    <option value="hujan">Musim Hujan (Rendeng / Basah)</option>
+                    <option value="kemarau">Musim Kemarau (Gadu / Kering)</option>
+                  </select>
+                </div>
+              </div>
+
+              <button type="button" class="btn btn-primary btn-block btn-analyze" id="btnAnalyzePlan">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <circle cx="11" cy="11" r="8" stroke="currentColor" stroke-width="1.8"/>
+                  <path d="M21 21L16.65 16.65" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                </svg>
+                <span>Analisis Rencana Tanam</span>
+              </button>
+            </form>
+
+            <div class="form-simulation-disclaimer">
+              <span class="disc-dot"></span>
+              <span>Hasil simulasi disusun berdasarkan data model agronomi konseptual dan bukan jaminan hasil lapangan mutlak.</span>
+            </div>
+          </div>
+
+          <!-- Analysis Result Display Card -->
+          <div class="planner-result-card" id="plannerResultCard" aria-live="polite">
+            
+            <div class="result-status-banner status-recommended" id="resultStatusBanner">
+              <div class="status-icon-indicator" id="resultStatusIcon">✓</div>
+              <div class="status-texts">
+                <span class="status-sublabel">HASIL EVALUASI SIMULASI</span>
+                <h3 class="status-title-large" id="resultStatusTitle">Rencana Tanam Sangat Direkomendasikan</h3>
+              </div>
+            </div>
+
+            <div class="result-summary-section">
+              <p class="result-narrative" id="resultNarrative">
+                Kondisi peralihan di Jawa Timur sangat ideal untuk memulai persemaian padi sawah. Pasokan air mencukupi tanpa risiko genangan berlebih yang dapat merusak benih muda.
+              </p>
+            </div>
+
+            <div class="result-specs-grid">
+              
+              <div class="result-spec-item">
+                <span class="spec-label">Waktu Tanam Disarankan</span>
+                <strong class="spec-val" id="resultPlantTime">2 – 3 Minggu ke depan (Awal November)</strong>
+              </div>
+
+              <div class="result-spec-item">
+                <span class="spec-label">Tingkat Risiko</span>
+                <strong class="spec-val" id="resultRiskLevel">Rendah – Sedang (Mitigasi Cuaca)</strong>
+              </div>
+
+              <div class="result-spec-item">
+                <span class="spec-label">Kebutuhan Air & Irigasi</span>
+                <strong class="spec-val" id="resultWaterNeed">Sedang – Tinggi (Cukupi Irigasi Alur)</strong>
+              </div>
+
+              <div class="result-spec-item">
+                <span class="spec-label">Estimasi Masa Tanam</span>
+                <strong class="spec-val" id="resultDuration">115 Hari (Perkiraan Panen: Akhir Februari)</strong>
+              </div>
+
+            </div>
+
+            <div class="result-checklist-section">
+              <h4 class="checklist-title">Hal yang Perlu Diperhatikan:</h4>
+              <ul class="result-points-list" id="resultKeyPoints">
+                <li>Gunakan benih bersertifikat dengan daya tumbuh minimal 85% untuk ketahanan seragam.</li>
+                <li>Siapkan saluran drainase darurat untuk mengantisipasi lonjakan curah hujan mendadak di bulan kedua.</li>
+                <li>Lakukan pemupukan berimbang N-P-K sesuai rekomendasi uji tanah spesifik lokasi.</li>
+              </ul>
+            </div>
+
+            <div class="result-card-footer">
+              <span class="footer-simulation-note">Simulasi diperbarui otomatis berdasarkan kombinasi input.</span>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 10: KENAPA PANENTEPAT? -->
+    <section class="section section-why" id="kenapa">
+      <div class="container">
+        <header class="section-header">
+          <div class="section-subtitle">PRINSIP & PENDEKATAN KAMI</div>
+          <h2 class="section-title">Kenapa PanenTepat?</h2>
+          <p class="section-desc">Menjembatani kompleksitas sains agronomi ke dalam kejelasan keputusan sehari-hari petani.</p>
+        </header>
+
+        <div class="why-pillars-grid">
+          
+          <!-- Pillar 1 -->
+          <div class="pillar-card">
+            <span class="pillar-num">01</span>
+            <div class="pillar-content">
+              <h3 class="pillar-title">Informasi yang Tersebar</h3>
+              <div class="pillar-arrow">→ dirangkum dalam satu alur terpadu.</div>
+              <p class="pillar-text">
+                Petani tidak perlu lagi membuka belasan sumber terpisah untuk mengetahui curah hujan, masa tanam varietas, dan riwayat harga. Seluruh kaitan disatukan dalam satu pandangan utuh.
+              </p>
+            </div>
+          </div>
+
+          <!-- Pillar 2 -->
+          <div class="pillar-card">
+            <span class="pillar-num">02</span>
+            <div class="pillar-content">
+              <h3 class="pillar-title">Data yang Sulit Dipahami</h3>
+              <div class="pillar-arrow">→ diterjemahkan menjadi visual sederhana.</div>
+              <p class="pillar-text">
+                Kami mengubah angka metrik iklim yang membingungkan menjadi indikator visual yang jernih, tenang, dan langsung dapat dieksekusi di pematang sawah.
+              </p>
+            </div>
+          </div>
+
+          <!-- Pillar 3 -->
+          <div class="pillar-card">
+            <span class="pillar-num">03</span>
+            <div class="pillar-content">
+              <h3 class="pillar-title">Keputusan Tanam Memiliki Risiko</h3>
+              <div class="pillar-arrow">→ pengguna melihat faktor penentu di awal.</div>
+              <p class="pillar-text">
+                Menanam tanpa memperhitungkan fluktuasi cuaca adalah spekulasi. PanenTepat memberikan gambaran risiko sejak hari pertama sebelum benih disemai.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 11: ABOUT INDONESIA (KONTEKS IKLIM NUSANTARA) -->
+    <section class="section section-archipelago bg-warm" id="tentang">
+      <div class="container">
+        <header class="section-header">
+          <div class="section-subtitle">KERAGAMAN AGROKLIMAT NUSANTARA</div>
+          <h2 class="section-title">Setiap daerah punya musimnya sendiri.</h2>
+          <p class="section-desc">Indonesia membentang di garis khatulistiwa dengan pola monsun yang unik. Memahami karakter bentang alam adalah kunci ketahanan pangan kita.</p>
+        </header>
+
+        <div class="archipelago-interactive-layout">
+          
+          <!-- Clean Stylized Archipelago SVG Map -->
+          <div class="map-visual-container">
+            <div class="map-wrapper">
+              <svg viewBox="0 0 760 320" class="indonesia-map-svg" id="indoMapSvg" aria-label="Peta Agro-Klimat Wilayah Indonesia">
+                <defs>
+                  <filter id="softGlow" x="-10%" y="-10%" width="120%" height="120%">
+                    <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#1B382B" flood-opacity="0.12"/>
+                  </filter>
+                </defs>
+
+                <!-- Stylized Island Silhouettes (Indonesian Archipelago) -->
+                <!-- Sumatera -->
+                <path class="island-path" data-map-region="sumatra" d="M60 70 Q 90 90, 140 140 Q 180 190, 210 240 L 190 255 Q 150 200, 110 150 Q 70 100, 45 75 Z" fill="#D6E2D8" stroke="#A7C2AF" stroke-width="1.2"/>
+                
+                <!-- Jawa -->
+                <path class="island-path active-map-island" data-map-region="jawa" d="M190 270 Q 260 268, 330 272 Q 380 275, 420 278 L 418 288 Q 360 286, 290 284 Q 220 284, 185 280 Z" fill="#244837" stroke="#163124" stroke-width="1.2"/>
+                
+                <!-- Kalimantan -->
+                <path class="island-path" data-map-region="kalimantan" d="M250 110 Q 300 80, 360 100 Q 390 130, 380 180 Q 340 210, 280 200 Q 240 170, 250 110 Z" fill="#D6E2D8" stroke="#A7C2AF" stroke-width="1.2"/>
+                
+                <!-- Sulawesi -->
+                <path class="island-path" data-map-region="sulawesi" d="M420 120 Q 450 100, 460 140 Q 480 120, 500 130 Q 480 160, 460 170 Q 470 200, 480 240 L 465 242 Q 450 210, 445 180 Q 420 180, 420 120 Z" fill="#D6E2D8" stroke="#A7C2AF" stroke-width="1.2"/>
+                
+                <!-- Bali & Nusa Tenggara -->
+                <path class="island-path" data-map-region="nusatenggara" d="M430 280 Q 460 282, 490 284 Q 530 286, 560 290 L 558 296 Q 510 292, 430 287 Z" fill="#D6E2D8" stroke="#A7C2AF" stroke-width="1.2"/>
+                
+                <!-- Papua / Maluku -->
+                <path class="island-path" data-map-region="papua" d="M590 150 Q 640 130, 710 140 Q 730 180, 710 230 Q 650 240, 600 210 Q 580 180, 590 150 Z" fill="#D6E2D8" stroke="#A7C2AF" stroke-width="1.2"/>
+
+                <!-- Interactive Region Pins/Pointers -->
+                <!-- Jawa Timur Pin -->
+                <g class="map-pin active-pin" data-pin="jatim" transform="translate(375, 275)" role="button" tabindex="0" aria-label="Wilayah Jawa Timur">
+                  <circle cx="0" cy="0" r="14" class="pin-pulse" fill="#C25E3E" opacity="0.25"/>
+                  <circle cx="0" cy="0" r="6" class="pin-core" fill="#C25E3E"/>
+                  <text x="0" y="-14" class="pin-label" text-anchor="middle">Jawa Timur</text>
+                </g>
+
+                <!-- Jawa Barat Pin -->
+                <g class="map-pin" data-pin="jabar" transform="translate(235, 270)" role="button" tabindex="0" aria-label="Wilayah Jawa Barat">
+                  <circle cx="0" cy="0" r="14" class="pin-pulse" fill="#244837" opacity="0.15"/>
+                  <circle cx="0" cy="0" r="6" class="pin-core" fill="#244837"/>
+                  <text x="0" y="-14" class="pin-label" text-anchor="middle">Jawa Barat</text>
+                </g>
+
+                <!-- Sumatera Selatan Pin -->
+                <g class="map-pin" data-pin="sumsel" transform="translate(145, 195)" role="button" tabindex="0" aria-label="Wilayah Sumatera Selatan">
+                  <circle cx="0" cy="0" r="14" class="pin-pulse" fill="#244837" opacity="0.15"/>
+                  <circle cx="0" cy="0" r="6" class="pin-core" fill="#244837"/>
+                  <text x="0" y="-14" class="pin-label" text-anchor="middle">Sumatera Selatan</text>
+                </g>
+
+                <!-- Sulawesi Selatan Pin -->
+                <g class="map-pin" data-pin="sulsel" transform="translate(465, 220)" role="button" tabindex="0" aria-label="Wilayah Sulawesi Selatan">
+                  <circle cx="0" cy="0" r="14" class="pin-pulse" fill="#244837" opacity="0.15"/>
+                  <circle cx="0" cy="0" r="6" class="pin-core" fill="#244837"/>
+                  <text x="0" y="-14" class="pin-label" text-anchor="middle">Sulawesi Selatan</text>
+                </g>
+              </svg>
+            </div>
+            <span class="map-instruction-text">Klik titik wilayah pada peta untuk membaca karakteristik agro-klimat.</span>
+          </div>
+
+          <!-- Region Editorial Feature Detail -->
+          <div class="map-region-editorial" id="mapRegionEditorial">
+            <div class="editorial-region-header">
+              <span class="editorial-region-tag" id="mapFeatureTag">Karakteristik Wilayah</span>
+              <h3 class="editorial-region-title" id="mapFeatureTitle">Jawa Timur — Lumbung Pangan Monsunal</h3>
+            </div>
+
+            <p class="editorial-region-body" id="mapFeatureBody">
+              Memiliki tipe iklim monsunal tegas dengan musim kemarau yang nyata dan musim hujan yang teratur. Pola tanam umum: Padi – Padi – Palawija (Jagung/Kedelai). Irigasi teknis di sepanjang aliran Sungai Brantas dan Bengawan Solo menjadi penopang utama kestabilan panen padi provinsi ini.
+            </p>
+
+            <div class="editorial-region-specs">
+              <div class="region-spec-box">
+                <span class="spec-caption">Pola Tanam Unggulan</span>
+                <strong class="spec-data" id="mapFeatureCropPattern">Padi (Rendeng) → Padi (Gadu) → Jagung</strong>
+              </div>
+              <div class="region-spec-box">
+                <span class="spec-caption">Karakter Tanah Dominan</span>
+                <strong class="spec-data" id="mapFeatureSoil">Aluvial, Grumosol & Andosol Subur</strong>
+              </div>
+            </div>
+
+            <div class="editorial-action-link">
+              <a href="#musim" class="link-inline" id="mapSyncSeasonLink">
+                <span>Lihat Data Kondisi Musim Wilayah Ini</span>
+                <span class="arrow-right">→</span>
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- SECTION 12: FOOTER MINIMAL & ELEGAN -->
+  <footer class="site-footer">
+    <div class="container footer-container">
+      
+      <div class="footer-top-grid">
+        
+        <!-- Brand & Tagline -->
+        <div class="footer-brand-col">
+          <a href="#hero" class="footer-logo">
+            <span class="logo-symbol" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                <path d="M12 2C12 2 6 7 6 13C6 16.3137 8.68629 19 12 19C15.3137 19 18 16.3137 18 13C18 7 12 2 12 2Z" stroke="currentColor" stroke-width="1.6"/>
+                <path d="M12 7V19" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+                <circle cx="12" cy="21" r="1" fill="currentColor"/>
+              </svg>
+            </span>
+            <span class="logo-text">PANENTEPAT</span>
+          </a>
+          <p class="footer-tagline">
+            "Informasi yang lebih sederhana untuk keputusan tanam yang lebih baik."
+          </p>
+          <div class="footer-badge-pill">
+            <span class="badge-dot"></span>
+            <span>Prototype Konsep • Data Simulasi</span>
+          </div>
+        </div>
+
+        <!-- Quick Navigation -->
+        <div class="footer-nav-col">
+          <span class="footer-col-title">Navigasi Halaman</span>
+          <ul class="footer-links">
+            <li><a href="#hero">Beranda</a></li>
+            <li><a href="#musim">Kondisi Musim</a></li>
+            <li><a href="#komoditas">Rekomendasi Komoditas</a></li>
+            <li><a href="#perjalanan">Peta Perjalanan Tanam</a></li>
+            <li><a href="#risiko">Mitigasi Risiko</a></li>
+            <li><a href="#harga">Simulasi Harga</a></li>
+            <li><a href="#cek-rencana">Cek Rencana Tanam</a></li>
+            <li><a href="#tentang">Tentang Agro-Klimat</a></li>
+          </ul>
+        </div>
+
+        <!-- Target Audiences -->
+        <div class="footer-audience-col">
+          <span class="footer-col-title">Dirancang Untuk</span>
+          <ul class="footer-audience-list">
+            <li>Petani Kecil & Penggarap Mandiri</li>
+            <li>Kelompok Tani (Poktan & Gapoktan)</li>
+            <li>Penyuluh Pertanian Lapangan (PPL)</li>
+            <li>Peminat Ketahanan Pangan Nusantara</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom-bar">
+        <p class="footer-copyright">
+          © 2026 <strong>PanenTepat</strong>. Dirancang dengan kesederhanaan visual untuk memajukan pertanian Indonesia.
+        </p>
+        <p class="footer-disclaimer-small">
+          Seluruh data agroklimat, estimasi waktu, dan harga pada prototipe ini bersumber dari pemodelan simulasi untuk kebutuhan demonstrasi konseptual.
+        </p>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Floating Quick Action Button -->
+  <a href="#cek-rencana" class="floating-cta-btn" id="floatingCta" aria-label="Cek Rencana Tanam Cepat">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M9 5H7C5.89543 5 5 5.89543 5 7V19C5 20.1046 5.89543 21 7 21H17C18.1046 21 19 20.1046 19 19V7C19 5.89543 18.1046 5 17 5H15M9 5C9 6.10457 9.89543 7 11 7H13C14.1046 7 15 6.10457 15 5M9 5C9 3.89543 9.89543 3 11 3H13C14.1046 3 15 3.89543 15 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+      <path d="M9 14L11 16L15 11" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <span>Cek Rencana</span>
+  </a>
+
+  <!-- Script File -->
+  <script src="script.js"></script>
+</body>
+</html>
